@@ -1,0 +1,141 @@
+@media print {
+    .no-print {
+        display: none;
+    }
+}
+h2{
+    color: red;
+    text-align: center;
+    font-size: xx-large;
+}
+.container-div {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: -20px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: -20px;
+}
+@media (min-width: 576px) {
+    .container-div {
+        max-width: 540px; 
+    }
+}
+        
+@media (min-width: 768px) {
+    .container-div {
+        max-width: 720px; 
+    }
+}
+        
+@media (min-width: 992px) {
+    .container-div {
+        max-width: 960px; 
+    }
+}
+        
+@media (min-width: 1200px) {
+    .container-div {
+        max-width: 1140px; 
+    }
+}
+        
+@media (min-width: 1400px) {
+    .container-div {
+        max-width: 1320px; 
+    }
+}
+.format-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    margin-top: -20px;
+}
+.format-table th, .format-table td {
+    padding: 0.75rem; 
+    vertical-align: top; 
+    border: 1px solid #dee2e6; 
+}  
+.format-table thead th {
+    background-color: #f8d7da; 
+    color: #212529; 
+    border-bottom: 2px solid #dee2e6; 
+}   
+.format-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+.format-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+.edit-button {
+    background-color: white;
+    color: #0056b3;
+    border: 2px solid #0056b3;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.edit-button:hover{
+    background-color: #0056b3;
+    color: white;
+}
+.extra-button-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: -20px;
+}
+.extra-button{
+    background-color: rgba(255, 255, 255, 0);
+    color: red;
+    border: 2px solid red;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.extra-button:hover{
+    background-color: red;
+    color: white;
+}
+#overlay{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(83, 75, 75, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 50%;
+    border-radius: 28px;
+    padding: 25px;
+    background-color: white;
+}
+.form-display{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 55%;
+}
+.exit-form-button{
+    align-self: self-end;
+    background-color: none;
+    border: none;
+}
+.hidden {
+    display: none;
+}
+tbody tr td:first-child{
+    display: none;
+}
