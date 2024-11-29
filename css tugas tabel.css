@@ -80,6 +80,17 @@ h2{
     background-color: #0056b3;
     color: white;
 }
+.delete-button {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.delete-button:hover{
+    background-color: red;
+    color: white;
+}
 .extra-button-container{
     display: flex;
     justify-content: space-between;

@@ -24,7 +24,7 @@ function validateForm() {
 let n = 6
 function addRow() {
     document.getElementById('data').innerHTML+=
-        '<tr>' +
+        '<tr id="row_'+n+'">' +
             '<td id="id_'+n+'">'+
                 n+
             '</td>' +
@@ -44,9 +44,16 @@ function addRow() {
                 '<button class="edit-button" onclick="fillForm('+n+')">'+
                     '<i class="bi bi-pencil"></i>Edit'+
                 '</button>'+
+                '<button class="delete-button" onclick="deleteRow('+n+')">'+
+                        '<i class="bi bi-trash3"></i>'+
+                    '</button>'+
             '</td>'+
         '</tr>';
     n++;
+}
+function deleteRow(id) {
+    document.getElementById('row_'+id).remove()
+    n--;
 }
 function fillForm(rowNumber) {
     let id = document.getElementById("id_"+rowNumber).innerHTML
