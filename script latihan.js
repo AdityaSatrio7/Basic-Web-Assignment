@@ -1,9 +1,12 @@
+//Mengaktifkan overlay
 function onverlay() {
     document.getElementById("overlay").style.display = "flex";
 } 
+//Non-aktifkan overlay
 function offverlay() {
     document.getElementById("overlay").style.display = "none"; 
 }
+//Validasi isian form
 function validateForm() {
     let x = document.forms["formSaya"]["Nama"].value;
     let y = document.forms["formSaya"]["Npm"].value;
@@ -21,6 +24,7 @@ function validateForm() {
         return false
     }
 }
+//Fungsi tambah row di tabel
 let n = 6
 function addRow() {
     document.getElementById('data').innerHTML+=
@@ -51,10 +55,12 @@ function addRow() {
         '</tr>';
     n++;
 }
+//Menghapus row di tabel
 function deleteRow(id) {
     document.getElementById('row_'+id).remove()
     n--;
 }
+//Pindah data dari tabel ke form
 function fillForm(rowNumber) {
     let id = document.getElementById("id_"+rowNumber).innerHTML
     let currentNpm = document.getElementById("npm_"+rowNumber).innerHTML
@@ -68,6 +74,7 @@ function fillForm(rowNumber) {
     document.getElementById("femail").value = currentEmail
     onverlay()
 }
+//Edit dan pindah data dari form ke tabel
 function editData() {
 	let id = document.getElementById("fid").value;
 	let newNpm = document.getElementById("fNpm").value;
