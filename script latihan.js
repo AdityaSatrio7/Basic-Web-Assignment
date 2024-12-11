@@ -7,22 +7,24 @@ function offverlay() {
     document.getElementById("overlay").style.display = "none"; 
 }
 //Validasi isian form
-function validateForm() {
-    let x = document.forms["formSaya"]["Nama"].value;
-    let y = document.forms["formSaya"]["Npm"].value;
-    let z = document.forms["formSaya"]["email"].value;
-    if (x == "") {
+function validateForm(a, b, c, d) {
+    if (a == "") {
         alert("Kolom Nama Harus Diisi");
         return false;
     }
-    if (y == "") {
+    if (b == "") {
         alert("Kolom NPM Harus Diisi");
         return false;
     }
-    if (z == "") {
+    if (c == "") {
         alert("Kolom Email Harus Diisi");
         return false
     }
+    if (d == "") {
+        alert("Kolom Jenis Kelamin Harus Diisi");
+        return false
+    }
+    return true
 }
 //Fungsi tambah row di tabel
 let n = 6
@@ -81,6 +83,10 @@ function editData() {
 	let newNama = document.getElementById("fNama").value;
     let newjenisKelamin = document.getElementById("fJenis-Kelamin").value;
     let newEmail = document.getElementById("femail").value;
+    let validated = validateForm(newNama, newNpm, newEmail, newjenisKelamin);
+    if (!validated) {
+        return false;
+    }
     document.getElementById("npm_"+id).innerHTML = newNpm;
     document.getElementById("nama_"+id).innerHTML = newNama;
     document.getElementById("jenisKelamin_"+id).innerHTML = newjenisKelamin;
