@@ -105,9 +105,10 @@ h2{
 .login-form-container {
     display: none;
     position: absolute;
-    bottom: 100%;
+    bottom: 100%; /* Harusnya top:100% */
     left: 0;
     width: 100%;
+    /* Harusnya ada z-index:10, kalau ga form loginnya di bawah tabel */
     background-color: rgba(255, 255, 255, 0.452);
     padding: 20px;
     border: 1px solid #ddd;
