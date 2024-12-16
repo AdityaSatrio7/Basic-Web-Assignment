@@ -1,3 +1,14 @@
+$(document).ready(function() {
+    $(".login-button").click(function() {
+        $("#login-form").fadeIn();
+    });
+
+    $(document).click(function(event) {
+        if (!$(event.target).closest("#login-form,.login-button").length) {
+            $("#login-form").fadeOut();
+        }
+    });
+});
 //Mengaktifkan overlay
 function onverlay() {
     document.getElementById("overlay").style.display = "flex";
