@@ -1,8 +1,9 @@
+//Manggil form login
 $(document).ready(function() {
     $(".login-button").click(function() {
         $("#login-form").fadeIn();
     });
-
+//Tutup form login dengan klik diluar form
     $(document).click(function(event) {
         if (!$(event.target).closest("#login-form,.login-button").length) {
             $("#login-form").fadeOut();

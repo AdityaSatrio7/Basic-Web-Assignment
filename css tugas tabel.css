@@ -103,16 +103,24 @@ h2{
     text-decoration: underline;
 }
 .login-form-container {
+    color: black;
     display: none;
     position: absolute;
-    bottom: 100%; /* Harusnya top:100% */
+    top: 100%;
     left: 0;
-    width: 100%;
-    /* Harusnya ada z-index:10, kalau ga form loginnya di bawah tabel */
-    background-color: rgba(255, 255, 255, 0.452);
+    width: 200%;
+    z-index: 10;
+    background-color: rgba(211, 47, 47, 0.747);
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    box-sizing: border-box;
+}
+.login-form-container input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
 }
 .edit-button {
     background-color: white;
