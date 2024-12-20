@@ -18,78 +18,78 @@ function onverlay() {
 function offverlay() {
     document.getElementById("overlay").style.display = "none"; 
 }
-//Validasi isian form
+//Validasi isian form menggunakan jQuery
 function validateForm(a, b, c, d) {
-    if (a == "") {
+    if (a === "") {
         alert("Kolom Nama Harus Diisi");
         return false;
     }
-    if (b == "") {
+    if (b === "") {
         alert("Kolom NPM Harus Diisi");
         return false;
     }
-    if (c == "") {
+    if (c === "") {
         alert("Kolom Email Harus Diisi");
-        return false
+        return false;
     }
-    if (d == "") {
+    if (d === "") {
         alert("Kolom Jenis Kelamin Harus Diisi");
-        return false
+        return false;
     }
-    return true
+    return true;
 }
 //Fungsi tambah row di tabel
 let n = 6
 function addRow() {
-    const row = document.createElement('tr');
-    row.id = `row_${n}`;
-    row.innerHTML = `
-        <td id="id_${n}">${n}</td>
-        <td id="npm_${n}"></td>
-        <td id="nama_${n}"></td>
-        <td id="jenisKelamin_${n}"></td>
-        <td id="email_${n}"></td>
-        <td class="no-print">
-            <button class="edit-button" onclick="fillForm(${n})"><i class="bi bi-pencil"></i>Edit</button>
-            <button class="delete-button" onclick="deleteRow(${n})"><i class="bi bi-trash3"></i></button>
-        </td>
-    `;
-    document.getElementById('data').appendChild(row);
+    const row = $(`
+        <tr id="row_${n}">
+            <td id="id_${n}">${n}</td>
+            <td id="npm_${n}"></td>
+            <td id="nama_${n}"></td>
+            <td id="jenisKelamin_${n}"></td>
+            <td id="email_${n}"></td>
+            <td class="no-print">
+                <button class="edit-button" onclick="fillForm(${n})"><i class="bi bi-pencil"></i>Edit</button>
+                <button class="delete-button" onclick="deleteRow(${n})"><i class="bi bi-trash3"></i></button>
+            </td>
+        </tr>
+    `);
+    $('#data').append(row);
     n++;
 }
 //Menghapus row di tabel
 function deleteRow(id) {
-    document.getElementById('row_'+id).remove()
+    $('#row_'+id).remove()
     n--;
 }
 //Pindah data dari tabel ke form
 function fillForm(rowNumber) {
-    let id = document.getElementById("id_"+rowNumber).innerHTML
-    let currentNpm = document.getElementById("npm_"+rowNumber).innerHTML
-    let currentNama = document.getElementById("nama_"+rowNumber).innerHTML
-    let currentjenisKelamin = document.getElementById("jenisKelamin_"+rowNumber).innerHTML
-    let currentEmail = document.getElementById("email_"+rowNumber).innerHTML
-    document.getElementById("fid").value = id
-    document.getElementById("fNpm").value = currentNpm
-    document.getElementById("fNama").value = currentNama
-    document.getElementById("fJenis-Kelamin").value = currentjenisKelamin
-    document.getElementById("femail").value = currentEmail
+    let id = $("#id_" + rowNumber).html()
+    let currentNpm = $("#npm_" + rowNumber).html()
+    let currentNama = $("#nama_" + rowNumber).html()
+    let currentjenisKelamin = $("#jenisKelamin_" + rowNumber).html()
+    let currentEmail = $("#email_" + rowNumber).html()
+    $("#fid").val(id)
+    $("#fNpm").val(currentNpm)
+    $("#fNama").val(currentNama)
+    $("#fJenis-Kelamin").val(currentjenisKelamin)
+    $("#femail").val(currentEmail)
     onverlay()
 }
 //Edit dan pindah data dari form ke tabel
 function editData() {
-	let id = document.getElementById("fid").value;
-	let newNpm = document.getElementById("fNpm").value;
-	let newNama = document.getElementById("fNama").value;
-    let newjenisKelamin = document.getElementById("fJenis-Kelamin").value;
-    let newEmail = document.getElementById("femail").value;
+    let id = $("#fid").val();
+    let newNpm = $("#fNpm").val();
+    let newNama = $("#fNama").val();
+    let newjenisKelamin = $("#fJenis-Kelamin").val();
+    let newEmail = $("#femail").val();
     let validated = validateForm(newNama, newNpm, newEmail, newjenisKelamin);
     if (!validated) {
         return false;
     }
-    document.getElementById("npm_"+id).innerHTML = newNpm;
-    document.getElementById("nama_"+id).innerHTML = newNama;
-    document.getElementById("jenisKelamin_"+id).innerHTML = newjenisKelamin;
-    document.getElementById("email_"+id).innerHTML = newEmail;
+    $("#npm_" + id).html(newNpm);
+    $("#nama_" + id).html(newNama);
+    $("#jenisKelamin_" + id).html(newjenisKelamin);
+    $("#email_" + id).html(newEmail);
     offverlay()
 }
