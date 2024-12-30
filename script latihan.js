@@ -93,3 +93,55 @@ function editData() {
     $("#email_" + id).html(newEmail);
     offverlay()
 }
+let data = [
+    {
+        'id': 1, 
+        'npm': "2013241001",
+        'nama': "Aditya Imam Satrio",
+        'jenisKelamin': "Laki-Laki",
+        'email': "adityaisatrio404@gmail.com"
+    },
+    {
+        'id': 2, 
+        'npm': "2013241002",
+        'nama': "Harits Ardiono Rakhmadi",
+        'jenisKelamin': "Laki-Laki",
+        'email': "HaritsAR145@gmail.com"
+    },
+    {
+        'id': 3, 
+        'npm': "2013241003",
+        'nama': "Anindita Dwi wulandari",
+        'jenisKelamin': "Perempuan",
+        'email': "aninditadwiwula7@gmail.com"
+    },
+    {
+        'id': 4, 
+        'npm': "2013241005",
+        'nama': "Firman Sandy Prayitno",
+        'jenisKelamin': "Laki-Laki",
+        'email': "FirmanSandyP@gmail.com"
+    },
+    {
+        'id': 5,
+        'npm': "2013241006",
+        'nama': "Ananda Samuel Hutapea",
+        'jenisKelamin': "Laki-Laki",
+        'email': "AnandaSam12@gmail.com"
+    }
+]
+$(document).ready( function () {
+    console.log(data);
+    $('#myTable').DataTable( {
+        ordering: true,
+        searching: true,
+        data: data,
+        columns: [
+            { data: "id" },
+            { data: "npm" },
+            { data: "nama" },
+            { data: "jenisKelamin" },
+            { data: "email" }
+        ]
+    } );
+} );
