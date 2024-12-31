@@ -9,6 +9,26 @@ $(document).ready(function() {
             $("#login-form").fadeOut();
         }
     });
+    //Mengirim data form login ke server
+    $("#login-form").submit(function(event) {
+        event.preventDefault();
+        const username = $("#username").val();
+        const password = $("#password").val();
+        $.ajax({
+            url: 'login.php',
+            type: 'POST',
+            dataType: 'json',
+            data: { username: username, password: password },
+            success: function(response) {
+                if (response.valid) {
+                    alert("Login berhasil");
+                    $("#login-form").fadeOut();
+                } else {
+                    alert("Username/password salah");
+                }
+            }
+        });
+    });
 });
 //Mengaktifkan overlay
 function onverlay() {
@@ -93,55 +113,26 @@ function editData() {
     $("#email_" + id).html(newEmail);
     offverlay()
 }
-let data = [
-    {
-        'id': 1, 
-        'npm': "2013241001",
-        'nama': "Aditya Imam Satrio",
-        'jenisKelamin': "Laki-Laki",
-        'email': "adityaisatrio404@gmail.com"
-    },
-    {
-        'id': 2, 
-        'npm': "2013241002",
-        'nama': "Harits Ardiono Rakhmadi",
-        'jenisKelamin': "Laki-Laki",
-        'email': "HaritsAR145@gmail.com"
-    },
-    {
-        'id': 3, 
-        'npm': "2013241003",
-        'nama': "Anindita Dwi wulandari",
-        'jenisKelamin': "Perempuan",
-        'email': "aninditadwiwula7@gmail.com"
-    },
-    {
-        'id': 4, 
-        'npm': "2013241005",
-        'nama': "Firman Sandy Prayitno",
-        'jenisKelamin': "Laki-Laki",
-        'email': "FirmanSandyP@gmail.com"
-    },
-    {
-        'id': 5,
-        'npm': "2013241006",
-        'nama': "Ananda Samuel Hutapea",
-        'jenisKelamin': "Laki-Laki",
-        'email': "AnandaSam12@gmail.com"
-    }
-]
+
+let dataSet = [
+    ['2013241001', 'Aditya Imam Satrio', 'Laki-Laki', 'adityaisatrio4040@gmail.com'],
+    ['2013241002', 'Harits Ardiono Rakhmadi', 'Laki-Laki', 'HaritsAR145@gmail.com'],
+    ['2013241003', 'Anindita Dwi Wulandari', 'Perempuan', 'aninditadwiwula7@gmail.com'],
+    ['2013241005', 'Firman Sandy Prayitno', 'Laki-Laki', 'FirmanSandyP@gmail.com'],
+    ['2013241006', 'Ananda Samuel Hutapea', 'Laki-Laki', 'AnandaSam12@gmail.com'],
+];
+
 $(document).ready( function () {
-    console.log(data);
     $('#myTable').DataTable( {
         ordering: true,
         searching: true,
         data: data,
         columns: [
-            { data: "id" },
-            { data: "npm" },
-            { data: "nama" },
-            { data: "jenisKelamin" },
-            { data: "email" }
-        ]
+            { title: "NPM" },
+            { title: "Nama" },
+            { title: "Jenis Kelamin" },
+            { title: "Email" }
+        ],
+        data: dataSet
     } );
 } );

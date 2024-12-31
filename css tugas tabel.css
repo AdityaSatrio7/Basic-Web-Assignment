@@ -204,3 +204,6 @@ h2{
 tbody tr td:first-child{
     display: none;
 }
+#myTable {
+    background-color: white;
+}
