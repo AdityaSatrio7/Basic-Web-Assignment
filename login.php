@@ -1,6 +1,4 @@
 <?php
-/*header('Content-Type: application/json');
-
 $validCredentials = [
     ['username' => 'adit', 'password' => '121212'],
     ['username' => 'harits', 'password' => '131313']
@@ -17,6 +15,5 @@ foreach ($validCredentials as $cred) {
     }
 }
 
-echo json_encode(['valid' => $isValid]);*/
-echo "Login gagal";
+echo json_encode(['valid' => $isValid]);
 ?>

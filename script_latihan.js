@@ -15,7 +15,7 @@ $(document).ready(function() {
         const username = $("#username").val();
         const password = $("#password").val();
         $.ajax({
-            url: 'target.php',
+            url: 'login.php',
             type: 'POST',
             dataType: 'json',
             data: { username: username, password: password },
