@@ -207,3 +207,19 @@ tbody tr td:first-child{
 #myTable {
     background-color: white;
 }
+.register-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: whitesmoke;
+}
+.register-form label, .register-form input {
+    display: block;
+    margin-bottom: 20px;
+}

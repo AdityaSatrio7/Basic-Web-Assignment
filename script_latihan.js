@@ -136,3 +136,15 @@ $(document).ready( function () {
         data: dataSet
     } );
 } );
+$("#formRegis").submit(function(event) {
+    event.preventDefault();
+    $.ajax({
+        url: 'process.php',
+        type: 'POST',
+        data: $(this).serialize(),
+        success: function(response) {
+            alert(response);
+            $("#formRegis")[0].reset();
+        }
+    });
+});
