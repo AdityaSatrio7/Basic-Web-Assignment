@@ -1,3 +1,14 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $members = $_POST["anggota"];
+    if (is_array($members)) {
+        foreach ($members as $indeks => $member) {
+            echo "Anggota " . ($indeks + 1) . ": " . $member . "<br>";
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,9 +16,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Register Form</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" type="text/css" href="../css tugas tabel.css">
+    <link rel="stylesheet" type="text/css" href="./css tugas tabel.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../script_latihan.js"></script>
+    <script type="text/javascript" src="./script_latihan.js"></script>
     <style>
         body{
             margin: 0;
