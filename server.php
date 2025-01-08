@@ -1,14 +1,10 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = null;
-
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+// Buat koneksi database SQLite lewat PDO
+try {
+  $pdo = new PDO('sqlite:./Database/mydb.db');
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "Connected successfully to database.";
+} catch (PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
 }
-echo "Connected successfully";
 ?>
