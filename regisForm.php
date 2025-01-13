@@ -1,10 +1,20 @@
 <?php
+include "./server.php";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $members = $_POST["anggota"];
-    if (is_array($members)) {
-        foreach ($members as $indeks => $member) {
-            echo "Anggota " . ($indeks + 1) . ": " . $member . "<br>";
+    $anggota = $_POST["anggota"];
+
+    if (!empty($anggota)) {
+        $stmt = $pdo->prepare("INSERT INTO Anggota_Himpunan (Nama) VALUES (:nama)");
+        foreach ($anggota as $nama) {
+            if (!empty($nama)) {
+                $stmt->bindParam(':nama', $nama);
+                $stmt->execute();
+            }
         }
+        echo "<script>alert('Data berhasil disimpan.');</script>";
+    } else {
+        echo "<script>alert('Data tidak boleh kosong.');</script>";
     }
 }
 ?>
@@ -36,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button class="login-button no-print">
             <i class="bi bi-key-fill"></i>Login
         </button>
-        <form id="login-form" class="login-form-container" method="POST">
+        <form id="login-form" class="login-form-container" method="POST" action="login.php">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>

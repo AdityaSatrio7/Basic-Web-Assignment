@@ -9,8 +9,11 @@ $(document).ready(function() {
             $("#login-form").fadeOut();
         }
     });
-    //Mengirim data form login ke server
-    $("#login-form").on("submit",function(event) {
+//menjalankan submit form registrasi data anggota
+    $("#formRegis").submit(function(event) {
+    });
+//menjalankan submit form login
+    $("#login-form").submit(function(event) {
         event.preventDefault();
         const username = $("#username").val();
         const password = $("#password").val();
@@ -20,16 +23,15 @@ $(document).ready(function() {
             dataType: 'json',
             data: { username: username, password: password },
             success: function(response) {
+                alert(response.message);
                 if (response.valid) {
-                    alert("Login berhasil");
                     $("#login-form").fadeOut();
-                } else {
-                    alert("Username/password salah");
                 }
             }
         });
     });
 });
+
 //Mengaktifkan overlay
 function onverlay() {
     document.getElementById("overlay").style.display = "flex";

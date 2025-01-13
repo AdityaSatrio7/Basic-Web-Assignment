@@ -1,6 +1,6 @@
 <?php
 include "./server.php";
-
+include "./login.php";
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +35,7 @@ include "./server.php";
         <button class="login-button no-print">
             <i class="bi bi-key-fill"></i>Login
         </button>
-        <form id="login-form" class="login-form-container" method="POST">
+        <form id="login-form" class="login-form-container" method="POST" action="login.php">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
