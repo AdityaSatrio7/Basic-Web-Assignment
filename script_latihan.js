@@ -27,6 +27,10 @@ $(document).ready(function() {
                 if (response.valid) {
                     $("#login-form").fadeOut();
                 }
+            },
+            error: function(xhr, status, error) {
+                console.error("AJAX error:", error);
+                console.log(xhr.responseText);  // To see the raw response
             }
         });
     });
