@@ -223,3 +223,49 @@ tbody tr td:first-child{
     display: block;
     margin-bottom: 20px;
 }
+.register-button {
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.register-button:hover {
+    text-decoration: underline;
+}
+#register-overlay {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(83, 75, 75, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#register-overlay .form-container {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 50%;
+    border-radius: 28px;
+    padding: 25px;
+    background-color: white;
+}
+#register-overlay .form-display {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 55%;
+}
+#register-overlay .exit-form-button {
+    align-self: self-end;
+    background-color: none;
+    border: none;
+}

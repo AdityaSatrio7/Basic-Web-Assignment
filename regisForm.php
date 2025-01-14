@@ -43,6 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="header no-print">
     <div class="header-image"></div>
     <div id="login"> 
+        <button class="register-button no-print">
+            <i class="bi bi-person-plus-fill"></i>Register
+        </button>
         <button class="login-button no-print">
             <i class="bi bi-key-fill"></i>Login
         </button>
@@ -55,6 +58,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>    
 </div> 
+<div id="register-overlay" class="overlay">
+    <div class="form-container">
+        <button class="exit-form-button" onclick="$('#register-overlay').fadeOut()">
+            <i class="bi bi-x-lg"></i>
+        </button>
+        <form id="register-form" class="form-display" method="POST" action="register.php">
+            <label for="reg-username">Username:</label>
+            <input type="text" id="reg-username" name="username" required>
+            <label for="reg-password">Password:</label>
+            <input type="password" id="reg-password" name="password" required>
+            <button type="submit" name="submit">Register</button>
+        </form>
+    </div>
+</div>
 <form id="formRegis" class="register-form" method="POST">
     <label for="anggota">Anggota 1</label>
     <input type="text" id="anggota1" name="anggota[]">

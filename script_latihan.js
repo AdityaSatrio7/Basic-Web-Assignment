@@ -3,10 +3,16 @@ $(document).ready(function() {
     $(".login-button").click(function() {
         $("#login-form").fadeIn();
     });
+    $(".register-button").click(function() {
+        $("#register-overlay").fadeIn();
+    });
 //Tutup form login dengan klik diluar form
     $(document).click(function(event) {
         if (!$(event.target).closest("#login-form,.login-button").length) {
             $("#login-form").fadeOut();
+        }
+        if (!$(event.target).closest("#register-overlay,.register-button").length) {
+            $("#register-overlay").fadeOut();
         }
     });
 //menjalankan submit form registrasi data anggota
@@ -27,10 +33,6 @@ $(document).ready(function() {
                 if (response.valid) {
                     $("#login-form").fadeOut();
                 }
-            },
-            error: function(xhr, status, error) {
-                console.error("AJAX error:", error);
-                console.log(xhr.responseText);  // To see the raw response
             }
         });
     });
